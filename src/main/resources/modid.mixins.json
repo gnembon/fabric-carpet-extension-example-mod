@@ -4,7 +4,6 @@
   "package": "carpet_extension.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "CrashReport_noopMixin",
     "MobEntity_makarenaMixin"
   ],
   "client": [

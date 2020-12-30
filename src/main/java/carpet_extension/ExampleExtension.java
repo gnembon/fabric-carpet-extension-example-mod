@@ -6,18 +6,20 @@ import carpet.settings.SettingsManager;
 import carpet.utils.Messenger;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+
+import net.fabricmc.api.ModInitializer;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 
-public class ExampleExtension implements CarpetExtension
+public class ExampleExtension implements CarpetExtension, ModInitializer
 {
-    public static void noop() { }
     private static SettingsManager mySettingManager;
-    static
+    @Override
+    public void onInitialize()
     {
         mySettingManager = new SettingsManager("1.0","examplemod","Example Mod");
-        CarpetServer.manageExtension(new ExampleExtension());
+        CarpetServer.manageExtension(this);
     }
 
     @Override

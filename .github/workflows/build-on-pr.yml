@@ -8,6 +8,8 @@
 
 name: build
 on: [pull_request, push]
+    paths:
+    - "src/**"
 
 jobs:
   build:
